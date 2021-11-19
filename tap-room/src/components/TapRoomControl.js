@@ -1,4 +1,5 @@
 import React from "react";
+import KegList from "./KegList";
 
 class TapRoomControl extends React.Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class TapRoomControl extends React.Component {
       listVisible: true,
       formVisible: false,
       selectedKeg: null,
-      kegList= [
+      kegList: [
         {
           name: 'Corona Extra',
           brand: 'Cerveceria Modelo',
@@ -42,9 +43,10 @@ class TapRoomControl extends React.Component {
 
   render() {
     let currentlyVisibleState = null;
+    currentlyVisibleState = <KegList kegList={this.state.kegList} />
     return (
       <React.Fragment>
-
+        {currentlyVisibleState}
       </React.Fragment>
     )
   }
