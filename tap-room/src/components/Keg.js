@@ -2,15 +2,23 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 function Keg(props) {
+  const kegCardStyle = {
+    width: '250px',
+    height: '250px',
+    padding: '10px',
+    margin: '10px',
+    border: '1px grey solid',
+    float: 'left'
+  }
   return (
     <React.Fragment>
-      <div>
-        <h1>{props.name}</h1>
+      <div style={kegCardStyle}>
+        <h2>{props.name}</h2>
         <hr/>
-        <p>{props.brand}</p>
-        <p>{props.price}</p>
-        <p>{props.pintPrice}</p>
-        <p>{props.alcoholContent}</p>
+        <p><strong>Brand:</strong> {props.brand}</p>
+        <p><strong>Price:</strong> ${props.price}</p>
+        <p><strong>Price per pint:</strong> ${props.pintPrice}</p>
+        <p><strong>Alcohol Content:</strong> {props.alcoholContent}%</p>
       </div>
     </React.Fragment>
   )

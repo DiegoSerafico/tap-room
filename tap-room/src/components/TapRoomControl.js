@@ -1,5 +1,6 @@
 import React from "react";
 import KegList from "./KegList";
+import MainContainer from "./MainContainer";
 
 class TapRoomControl extends React.Component {
   constructor(props) {
@@ -43,10 +44,15 @@ class TapRoomControl extends React.Component {
 
   render() {
     let currentlyVisibleState = null;
+    let mainContainerTitle = null;
+    if (this.state.listVisible) {
+      mainContainerTitle = "Menu"
+    }
     currentlyVisibleState = <KegList kegList={this.state.kegList} />
     return (
       <React.Fragment>
-        {currentlyVisibleState}
+        <MainContainer title={mainContainerTitle} contentView={currentlyVisibleState}
+         />
       </React.Fragment>
     )
   }
