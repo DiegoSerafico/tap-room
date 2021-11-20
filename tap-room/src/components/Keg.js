@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Keg(props) {
   const kegCardStyle = {
-    width: '250px',
+    width: '275px',
     height: '250px',
     padding: '10px',
     margin: '10px',

@@ -4,8 +4,8 @@ function MainContainer(props) {
   const containerStyle = {
     margin: '2px',
     marginRight: '2px',
-    border: '1px solid black',
-    position: 'fixed'
+    position: 'static',
+    display: 'block'
   }
   return (
     <React.Fragment>

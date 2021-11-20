@@ -1,0 +1,8 @@
+.navBarButton {
+  color: black;
+  display: inline;
+  margin: auto;
+  padding-right: 10%;
+  padding-left: 10%;
+  text-align: center;
+}
