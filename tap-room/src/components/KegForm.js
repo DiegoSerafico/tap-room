@@ -6,7 +6,7 @@ function KegForm(props) {
 
   function handleNewKegFromSubmission(e) {
     e.preventDefault();
-    props.onNewKegCreation({name: e.target.name.value, brand: e.target.brand.value, price: e.target.price.value, pintPrice: e.target.pintPrice.value, alcoholContent: e.target.alcoholContent.value, id: v4()});
+    props.onNewKegCreation({name: e.target.name.value, brand: e.target.brand.value, price: e.target.price.value, pintPrice: e.target.pintPrice.value, alcoholContent: e.target.alcoholContent.value, pintsLeft: 124, id: v4()});
   }
 
   return (
