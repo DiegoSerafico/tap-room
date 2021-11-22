@@ -20,6 +20,7 @@ class TapRoomControl extends React.Component {
           price: 120,
           pintPrice: 13,
           alcoholContent: 4.6,
+          pintsLeft: 124,
           id: 'keg1'
         },
         {
@@ -28,6 +29,7 @@ class TapRoomControl extends React.Component {
           price: 160,
           pintPrice: 15,
           alcoholContent: 4.4,
+          pintsLeft: 124,
           id: 'keg2'
         },
         {
@@ -36,6 +38,7 @@ class TapRoomControl extends React.Component {
           price: 180,
           pintPrice: 16,
           alcoholContent: 5.4,
+          pintsLeft: 124,
           id: 'keg3'
         },
         {
@@ -44,6 +47,7 @@ class TapRoomControl extends React.Component {
           price: 280,
           pintPrice: 16,
           alcoholContent: 5,
+          pintsLeft: 124,
           id: 'keg4'
         }
       ]
@@ -72,6 +76,11 @@ class TapRoomControl extends React.Component {
     this.setState({selectedKeg: selectedKeg, listVisible: false, formVisible: false, kegDisplayVisible: true});
   }
 
+  handleSellPintClick = (id) => {
+    this.state.kegList.filter(keg => keg.id === id)[0].pintsLeft--;
+    this.setState({listVisible: false, formVisible: false, kegDisplayVisible: true});
+  }
+
   render() {
     let currentlyVisibleState = null;
     let mainContainerTitle = null;
@@ -85,7 +94,7 @@ class TapRoomControl extends React.Component {
     }
     if (this.state.kegDisplayVisible) {
       mainContainerTitle = "Display";
-      currentlyVisibleState = <KegDisplay keg={this.state.selectedKeg} />
+      currentlyVisibleState = <KegDisplay keg={this.state.selectedKeg} onSellPintClicked={this.handleSellPintClick}/>
     }
     return (
       <React.Fragment>
