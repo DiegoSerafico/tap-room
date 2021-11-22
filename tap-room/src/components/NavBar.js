@@ -16,7 +16,7 @@ function NavBar(props) {
         <button class='navBarButton' onClick={props.onMenuClick}>Menu</button>
       </div>
       <div>
-        <button class='navBarButton' onClick={props.onAddKegClick}>Add Bracelet</button>
+        <button class='navBarButton' onClick={props.onAddKegClick}>Add Keg</button>
       </div>
     </div>
   )

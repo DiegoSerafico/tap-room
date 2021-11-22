@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import KegForm from "./KegForm";
 import KegList from "./KegList";
 import MainContainer from "./MainContainer";
+import KegDisplay from "./KegDisplay";
 
 class TapRoomControl extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class TapRoomControl extends React.Component {
       listVisible: true,
       formVisible: false,
       selectedKeg: null,
+      kegDisplayVisible: false,
       kegList: [
         {
           name: 'Corona Extra',
@@ -58,11 +60,16 @@ class TapRoomControl extends React.Component {
   }
 
   handleMenuClick = () => {
-    this.setState({listVisible: true, formVisible: false});
+    this.setState({listVisible: true, formVisible: false, kegDisplayVisible: false});
   }
 
   handleAddNewKegClick = () => {
-    this.setState({listVisible: false, formVisible: true});
+    this.setState({listVisible: false, formVisible: true, kegDisplayVisible: false});
+  }
+
+  handleIndividualKegClicked = (id) => {
+    const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0];
+    this.setState({selectedKeg: selectedKeg, listVisible: false, formVisible: false, kegDisplayVisible: true});
   }
 
   render() {
@@ -70,11 +77,15 @@ class TapRoomControl extends React.Component {
     let mainContainerTitle = null;
     if (this.state.listVisible) {
       mainContainerTitle = "Menu";
-      currentlyVisibleState = <KegList kegList={this.state.kegList} />
+      currentlyVisibleState = <KegList kegList={this.state.kegList} onIndividualKegClicked={this.handleIndividualKegClicked} />
     }
     if (this.state.formVisible) {
-      mainContainerTitle = "Add New Keg"
+      mainContainerTitle = "Add New Keg";
       currentlyVisibleState = <KegForm onNewKegCreation={this.handleAddingNewKeg} />;
+    }
+    if (this.state.kegDisplayVisible) {
+      mainContainerTitle = "Display";
+      currentlyVisibleState = <KegDisplay keg={this.state.selectedKeg} />
     }
     return (
       <React.Fragment>

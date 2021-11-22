@@ -19,6 +19,7 @@ function Keg(props) {
         <p><strong>Price:</strong> ${props.price}</p>
         <p><strong>Price per pint:</strong> ${props.pintPrice}</p>
         <p><strong>Alcohol Content:</strong> {props.alcoholContent}%</p>
+        <button onClick={() => props.whenDetailsClicked(props.id)}>Details</button>
       </div>
     </React.Fragment>
   )
@@ -29,7 +30,8 @@ Keg.propTypes = {
   brand: PropTypes.string,
   price: PropTypes.number,
   pintPrice: PropTypes.number,
-  alcoholContent: PropTypes.number
+  alcoholContent: PropTypes.number,
+  whenDetailsClicked: PropTypes.func
 }
 
 export default Keg;
